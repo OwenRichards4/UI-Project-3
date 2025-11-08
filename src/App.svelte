@@ -1,0 +1,1154 @@
+<script>
+  import CustomBlinkees from './CustomBlinkees.svelte';
+  let currentPage = 'home';
+  let x = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0, count6 = 0, count7 = 0, count8 = 0, count9 = 0, count10 = 0, count11 = 0, count12 = 0, count13 = 0, count14 = 0, count15 = 0, count16 = 0;
+  let productsCheck = true;
+
+  function addtocart(item) {
+    console.log(item)
+    if (item == "count1") {
+      cartTotal(count1)
+    } else if (item == "count2") {
+      cartTotal(count2)
+    } else if (item == "count3") {
+      cartTotal(count3)
+    } else if (item == "count4") {
+      cartTotal(count4)
+    } else if (item == "count5") {
+      cartTotal(count5)
+    } else if (item == "count6") {
+      cartTotal(count6)
+    } else if (item == "count7") {
+      cartTotal(count7)
+    } else if (item == "count8") {
+      cartTotal(count8)
+    } else if (item == "count9") {
+      cartTotal(count9)
+    } else if (item == "count10") {
+      cartTotal(count10)
+    } else if (item == "count11") {
+      cartTotal(count11)
+    } else if (item == "count12") {
+      cartTotal(count12)
+    } else if (item == "count13") {
+      cartTotal(count13)
+    } else if (item == "count14") {
+      cartTotal(count14)
+    } else if (item == "count15") {
+      cartTotal(count15)
+    } else {
+      cartTotal(count16)
+    }
+  }
+
+  function cartTotal(increment) {
+    for (let i = 0; i < increment ; i++) {
+      x += 1;
+    }
+  }
+
+  function incrementUp(val) {
+    if (val == "count1") {
+      count1 += 1;
+    } else if (val == "count2") {
+      count2 += 1;
+    } else if (val == "count3") {
+      count3 += 1;
+    } else if (val == "count4") {
+      count4 += 1;
+    } else if (val == "count5") {
+      count5 += 1;
+    } else if (val == "count6") {
+        count6 += 1;
+    } else if (val == "count7") {
+        count7 += 1;
+    } else if (val == "count8") {
+        count8 += 1;
+    } else if (val == "count9") {
+        count9 += 1;
+    } else if (val == "count10") {
+        count10 += 1;
+    } else if (val == "count11") {
+        count11 += 1;
+    } else if (val == "count12") {
+        count12 += 1;
+    } else if (val == "count13") {
+        count13 -= 1;
+    } else if (val == "count14") {
+        count14 += 1;
+    } else if (val == "count4") {
+        count15 += 1;
+    } else {
+        count16 += 1;
+    }
+    cartTotal("add");
+  }
+
+  function incrementDown(val) {
+    if (val == "count1") {
+      if (count1 > 0) {
+        count1 -= 1;
+      }
+    } else if (val == "count2") {
+      if (count2 > 0) {
+        count2 -= 1;
+      }
+    } else if (val == "count3") {
+      if (count3 > 0) {
+        count3 -= 1;
+      }
+    } else if (val == "count4") {
+      if (count4 > 0) {
+        count4 -= 1;
+      }
+    } else if (val == "count5") {
+      if (count5 > 0) {
+        count5 -= 1;
+      }
+    } else if (val == "count6") {
+      if (count6 > 0) {
+        count6 -= 1;
+      }
+    } else if (val == "count7") {
+      if (count7 > 0) {
+        count7 -= 1;
+      }
+    } else if (val == "count8") {
+      if (count8 > 0) {
+        count8 -= 1;
+      }
+    } else if (val == "count9") {
+      if (count9 > 0) {
+        count9 -= 1;
+      }
+    } else if (val == "count10") {
+      if (count10 > 0) {
+        count10 -= 1;
+      }
+    } else if (val == "count11") {
+      if (count11 > 0) {
+        count11 -= 1;
+      }
+    } else if (val == "count12") {
+      if (count12 > 0) {
+        count12 -= 1;
+      }
+    } else if (val == "count13") {
+      if (count13 > 0) {
+        count13 -= 1;
+      }
+    } else if (val == "count14") {
+      if (count14 > 0) {
+        count14 -= 1;
+      }
+    } else if (val == "count4") {
+      if (count15 > 0) {
+        count15 -= 1;
+      }
+    } else {
+      if (count16 > 0) {
+        count16 -= 1;
+      }
+    }
+    cartTotal("remove");
+  }
+
+  function showProducts() {
+    productsCheck = false;
+  }
+  function showHome() {
+    productsCheck = true;
+  }
+ 
+  let cartItems = [];
+
+  function addItemToCart(id, name, price, quantity) {
+    if (quantity < 1) {
+      return;
+    }
+    const newItem = { id, name, price: parseFloat(price), quantity: parseInt(quantity, 10) };
+    cartItems = [...cartItems, newItem];
+  }
+
+  function populateCart() {
+    cartItems = [];
+
+    addItemToCart(1, "Light Up Pirate Rapier Exandable Sword", 7.69, count1);
+    addItemToCart(2, "Light Up Expandable Magic Wizard with Prism Ball", 4.99, count2);
+    addItemToCart(3, "Galactic LED Expandable Green Light Saber Sword", 4.49, count3);
+    addItemToCart(4, "LED Shark Light Up Saber Sword", 8.49, count4);
+    addItemToCart(5, "Custom LED Flashing Blinky Light Pins - LogoBlinkee.com", 1.44, count5);
+    addItemToCart(6, "Black Light LED LIght Keychain Flashlight", 0.99, count6);
+    addItemToCart(7, "Light Up Devil Horns Blue", 1.79, count7);
+    addItemToCart(8, "Slingshot Flying Helicopter with Multicolor LED", 0.49, count8);
+    addItemToCart(9, "White Fiber Optic Want with White LEDs", 1.89, count9);
+    addItemToCart(10, "Light Up Soft Bubble Novelty Flashing Rings Pack of 24", 28.44, count10);
+    addItemToCart(11, "White LED Switch Activated Bottle Base Light Display Drink Coaster", 4.19, count11);
+    addItemToCart(12, "Light Up LED Flashing Cowboy Hat with White Sequins", 7.39, count12);
+    addItemToCart(13, "Grooby Disco Mirror Ball Earrings", 1.49, count13);
+    addItemToCart(14, "Red Heart Flashing Battery Operated Body Light Lapel Pins", 1.79, count14);
+    addItemToCart(15, "Non Light Up Jacko Thriller Beat It Billie Jean Right Hand Sequin Glove", 2.49, count15);
+    addItemToCart(16, "Infinite Illumination LED Tunnel Coaster", 3.79, count16);
+    return ""
+  }
+
+
+  const removeItem = (id) => {
+    cartItems = cartItems.filter((item) => item.id !== id);
+  };
+
+  const updateQuantity = (id, quantity) => {
+    cartItems = cartItems.map((item) =>
+      item.id === id ? { ...item, quantity: quantity } : item
+    );
+  };
+  $: total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+</script>
+
+<!-- Improved UI Changes  -->
+<!-- Buy in Bulk Button -->
+<!-- Removed Second Navigation Checkout Menu Option -->
+<!-- Footer redesign -->
+
+<header>
+  <section style="position: relative; left: 1%; display: flex; flex-direction: row; gap: 20px;">
+    <img src="src/assets/Blinkee-logo.webp" width=300 height=26 style="position: relative; right: 5px; top: 7px; cursor: pointer;" on:click={() => currentPage = 'home'}>
+    <input placeholder="Search for...">
+  </section>
+  <nav>
+    <button class="nav-item" on:click={() => currentPage = 'home'}>Home</button> <!-- Added home button to navigation -->
+    <button class="nav-item" on:click={() => currentPage = 'products'}>Products</button>
+    <!--<button>Checkout</button>-->
+
+    <!--Custom Blinkees Dropdown-->
+    <div class="dropdown">
+      <button class="nav-item" on:click={() => {currentPage = 'customBlinkees';}}>Custom Blinkees</button>
+
+      <div class="dropdown-menu">
+        <button class="dropdown-item">Pricing</button>
+        <button class="dropdown-item">Reviews</button>
+        <button class="dropdown-item">About</button>
+        <button class="dropdown-item">FAQ</button>
+        <button class="dropdown-item">Free Quote</button>
+      </div>
+
+    </div>
+
+    <button class="nav-item">Account</button>
+    <!--<button>Contact</button> We don't need another contact button -->
+    <button class="nav-item">About</button>
+    <!-- <button>Menu Item</button> this button on the action page leads to coins?!? -->
+    <section>
+      <img src="src/assets/1413908.png" width=18 on:click={()=>currentPage = 'shoppingCart'}>
+      <label for="shopping-cart">{x}</label>
+    </section>
+  </nav>
+</header>
+<main>
+  {#if currentPage === 'home'}
+    <div class="menu-row">
+      <div class="menu-item">
+        <div class="shadow">
+          <img src="src/assets/Light-Up-Pirate-Rapier-Expandable-Sword-Main-350x350.webp" height=275>
+          <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Light Up Pirate Rapier Expandable Sword</h2>
+          <div class="item-details">
+            <section>
+              <h4 style="line-height: 14px; padding: 0;">$7.69</h4>
+              <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                  <button class="increments" on:click={() => incrementDown("count1")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                  <input bind:value={count1} placeholder={count1} type="number" style="padding: 0; margin: 0; width: 30px;">
+                  <button class="increments" on:click={() => incrementUp("count1")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+              </section> 
+              <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count1")}>Add to Cart</button>
+            </section>
+            <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+            <section>
+              <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+              <h4 style="line-height: 14px;">As low as $4.89 Bulk</h4>
+              <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="shadow">
+          <img src="src/assets/Light-Up-Expandable-Magic-Wizard-with-Prism-Ball-Main-350x350.webp" height=275>
+          <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Light Up Expandable Magic Wizard with Prism Ball</h2>
+          <div class="item-details">
+            <section>
+              <h4 style="line-height: 14px; padding: 0;">$4.99</h4>
+              <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                  <button class="increments" on:click={() => incrementDown("count2")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                  <input bind:value={count2} placeholder={count2} type="number" style="padding: 0; margin: 0; width: 30px;">
+                  <button class="increments" on:click={() => incrementUp("count2")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+              </section> 
+              <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count2")}>Add to Cart</button>
+            </section>
+            <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+            <section>
+              <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+              <h4 style="line-height: 14px;">As low as $4.29 Bulk</h4>
+              <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="shadow">
+          <img src="src/assets/Galactic-LED-Expandable-Green-Light-Saber-Sword0-350x350.webp" height=275>
+          <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Galactic LED Expandable Green Light Saber Sword</h2>
+          <div class="item-details">
+            <section>
+              <h4 style="line-height: 14px; padding: 0;">$4.49</h4>
+              <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                  <button class="increments" on:click={() => incrementDown("count3")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                  <input bind:value={count3} placeholder={count3} type="number" style="padding: 0; margin: 0; width: 30px;">
+                  <button class="increments" on:click={() => incrementUp("count3")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+              </section> 
+              <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count3")}>Add to Cart</button>
+            </section>
+            <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+            <section>
+              <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+              <h4 style="line-height: 14px;">As low as $3.79 Bulk</h4>
+              <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item-last">
+        <div class="shadow">
+          <img src="src/assets/LED-Shark-Light-Up-Saber-Sword-Main-350x350.webp" height=275>
+          <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">LED Shark Light Up Saber Sword</h2>
+          <div class="item-details">
+            <section>
+              <h4 style="line-height: 14px; padding: 0;">$8.49</h4>
+              <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                  <button class="increments" on:click={() => incrementDown("count4")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                  <input bind:value={count4} placeholder={count4} type="number" style="padding: 0; margin: 0; width: 30px;">
+                  <button class="increments" on:click={() => incrementUp("count4")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+              </section> 
+              <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count4")}>Add to Cart</button>
+            </section>
+            <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+            <section>
+              <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+              <h4 style="line-height: 14px;">As low as $6.59 Bulk</h4>
+              <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  {:else if currentPage === 'products'}
+    <div class="products">
+      <div class="row-1">
+        <div class="menu-item">
+          <div class="shadow">
+            <img src="src/assets/NASA-Custom-Flashing-Blinky-Light-Pin-Technical-Drawing-350x276.webp" height=275>
+            <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3);">Custom LED Flashing Blinky Light Pins - LogoBlinkee.com</h2>
+            <div class="item-details">
+              <section>
+                <h4 style="line-height: 14px; padding: 0;">Starting at $1.44</h4>
+                <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                    <button class="increments" on:click={() => incrementDown("count5")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                    <input bind:value={count5} placeholder={count5} type="number" style="padding: 0; margin: 0; width: 30px;">
+                    <button class="increments" on:click={() => incrementUp("count5")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                </section> 
+                <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count5")}>Add to Cart</button>
+              </section>
+              <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+              <section style="position: relative; bottom: 11px;">
+                <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+                <h4 style="line-height: 14px;">As low as N/A in Bulk</h4>
+                <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="shadow">
+            <img src="src/assets/black-light-feauxton-led-light-key-rings-350x350.webp" height=275>
+            <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Black Light LED Light Keychain Flashlight</h2>
+            <div class="item-details">
+              <section>
+                <h4 style="line-height: 14px; padding: 0;">Starting at $0.99</h4>
+                <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                    <button class="increments" on:click={() => incrementDown("count6")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                    <input bind:value={count6} placeholder={count6} type="number" style="padding: 0; margin: 0; width: 30px;">
+                    <button class="increments" on:click={() => incrementUp("count6")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                </section> 
+                <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count6")}>Add to Cart</button>
+              </section>
+              <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+              <section style="position: relative; bottom: 11px;">
+                <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+                <h4 style="line-height: 14px;">As low as $0.60 in Bulk</h4>
+                <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="shadow">
+            <img src="src/assets/light-up-devil-horns-blue-350x350.webp" height=275>
+            <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Light Up Devil Horns Blue</h2>
+            <div class="item-details">
+              <section>
+                <h4 style="line-height: 14px; padding: 0;">Starting at $1.79</h4>
+                <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                    <button class="increments" on:click={() => incrementDown("count7")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                    <input bind:value={count7} placeholder={count7} type="number" style="padding: 0; margin: 0; width: 30px;">
+                    <button class="increments" on:click={() => incrementUp("count7")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                </section> 
+                <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count7")}>Add to Cart</button>
+              </section>
+              <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+              <section style="position: relative; bottom: 11px;">
+                <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+                <h4 style="line-height: 14px;">As low as $1.49 in Bulk</h4>
+                <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+              </section>
+            </div>
+          </div>
+        </div>
+          <div class="menu-item-last">
+            <div class="shadow">
+              <img src="src/assets/Slingshot-LIght-Up-Orange-350x350.webp" height=275>
+              <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Slingshot Flying Helicopter with Multicolor LED</h2>
+              <div class="item-details">
+                <section>
+                  <h4 style="line-height: 14px; padding: 0;">Starting at $0.49</h4>
+                  <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                      <button class="increments" on:click={() => incrementDown("count8")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                      <input bind:value={count8} placeholder={count8} type="number" style="padding: 0; margin: 0; width: 30px;">
+                      <button class="increments" on:click={() => incrementUp("count8")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                  </section> 
+                  <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count8")}>Add to Cart</button>
+                </section>
+                <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+                <section style="position: relative; bottom: 11px;">
+                  <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+                  <h4 style="line-height: 14px;">As low as $0.34 in Bulk</h4>
+                  <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+                </section>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--<div class="divider"></div>-->
+      <div class="row-2">
+        <div class="menu-item">
+          <div class="shadow">
+            <img src="src/assets/White-LED-Fiberoptic-Wand-350x350.webp" height=275>
+            <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">White Fiber Optic Wand with White LEDs</h2>
+            <div class="item-details">
+              <section>
+                <h4 style="line-height: 14px; padding: 0;">$1.89</h4>
+                <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                    <button class="increments" on:click={() => incrementDown("count9")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                    <input bind:value={count9} placeholder={count9} type="number" style="padding: 0; margin: 0; width: 30px;">
+                    <button class="increments" on:click={() => incrementUp("count9")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                </section> 
+                <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count9")}>Add to Cart</button>
+              </section>
+              <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+              <section style="position: relative; bottom: 11px;">
+                <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+                <h4 style="line-height: 14px;">As low as $1.49 in Bulk</h4>
+                <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="shadow">
+            <img src="src/assets/SoftBubbleRings-350x350.webp" height=275>
+            <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Light Up Soft Bubble Novelty Flashing Rings Pack of 24</h2>
+            <div class="item-details">
+              <section style="position: relative; width: 40%;">
+                <h4 style="line-height: 14px; padding: 0;">$28.44</h4>
+                <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                    <button class="increments" on:click={() => incrementDown("count10")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                    <input bind:value={count10} placeholder={count10} type="number" style="padding: 0; margin: 0; width: 30px;">
+                    <button class="increments" on:click={() => incrementUp("count10")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                </section> 
+                <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count10")}>Add to Cart</button>
+              </section>
+              <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+              <section style="position: relative; bottom: 11px;">
+                <h2 style="line-height: 14px; font-size: 130%;">Bulk Order</h2>
+                <h4 style="line-height: 15px;">As low as $23.99 Bulk</h4>
+                <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="shadow">
+            <img src="src/assets/WhiteCoasterLEDBase-350x350.webp" height=275>
+            <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">White LED Switch Activated Bottle Base Light Display Dri...</h2>
+            <div class="item-details">
+              <section>
+                <h4 style="line-height: 14px; padding: 0;">$4.19</h4>
+                <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                    <button class="increments" on:click={() => incrementDown("count11")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                    <input bind:value={count11} placeholder={count11} type="number" style="padding: 0; margin: 0; width: 30px;">
+                    <button class="increments" on:click={() => incrementUp("count11")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                </section> 
+                <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count11")}>Add to Cart</button>
+              </section>
+              <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+              <section style="position: relative; bottom: 11px;">
+                <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+                <h4 style="line-height: 14px;">As low as $3.49 in Bulk</h4>
+                <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item-last">
+          <div class="shadow">
+            <img src="src/assets/Light-Up-Silver-White-Flashing-Cowboy-Sequins-Hat-350x350.webp" height=275>
+            <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Light Up LED Flashing Cowboy Hat with White Sequins</h2>
+            <div class="item-details">
+              <section>
+                <h4 style="line-height: 14px; padding: 0;">$7.39</h4>
+                <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                    <button class="increments" on:click={() => incrementDown("count12")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                    <input bind:value={count12} placeholder={count12} type="number" style="padding: 0; margin: 0; width: 30px;">
+                    <button class="increments" on:click={() => incrementUp("count12")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                </section> 
+                <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count12")}>Add to Cart</button>
+              </section>
+              <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+              <section style="position: relative; bottom: 11px;">
+                <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+                <h4 style="line-height: 14px;">As low as $6.29 in Bulk</h4>
+                <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<div class="divider"></div>-->
+      <div class="row-3">
+        <div class="menu-item">
+          <div class="shadow">
+            <img src="src/assets/Mirror-Ball-Hooked-Earrings-350x318.webp" height=275>
+            <h2 sstyle="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Groovy Disco Mirror Ball Earrings</h2>
+            <div class="item-details">
+              <section>
+                <h4 style="line-height: 14px; padding: 0;">$1.49</h4>
+                <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                    <button class="increments" on:click={() => incrementDown("count13")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                    <input bind:value={count13} placeholder={count13} type="number" style="padding: 0; margin: 0; width: 30px;">
+                    <button class="increments" on:click={() => incrementUp("count13")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                </section> 
+                <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count13")}>Add to Cart</button>
+              </section>
+              <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+              <section style="position: relative; bottom: 11px;">
+                <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+                <h4 style="line-height: 14px;">As low as $1.14 in Bulk</h4>
+                <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="shadow">
+            <img src="src/assets/RedHeartLEDBodyLightLapelPinMain-350x350.webp" height=275>
+            <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Red Heart Flashing Battery Operated Body Light Lapel...</h2>
+            <div class="item-details">
+              <section>
+                <h4 style="line-height: 14px; padding: 0;">$1.79</h4>
+                <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                    <button class="increments" on:click={() => incrementDown("count14")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                    <input bind:value={count14} placeholder={count14} type="number" style="padding: 0; margin: 0; width: 30px;">
+                    <button class="increments" on:click={() => incrementUp("count14")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                </section> 
+                <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count14")}>Add to Cart</button>
+              </section>
+              <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+              <section style="position: relative; bottom: 11px;">
+                <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+                <h4 style="line-height: 14px;">As low as $1.44 in Bulk</h4>
+                <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="shadow">
+            <img src="src/assets/Silver-White-Non-LightUp-Sequin-Glove-350x350.webp" height=275>
+            <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Non Light Up Jacko Thriller Beat It Billie Jean Right...</h2>
+            <div class="item-details">
+              <section>
+                <h4 style="line-height: 14px; padding: 0;">$2.49</h4>
+                <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                    <button class="increments" on:click={() => incrementDown("count15")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                    <input bind:value={count15} placeholder={count15} type="number" style="padding: 0; margin: 0; width: 30px;">
+                    <button class="increments" on:click={() => incrementUp("count15")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                </section> 
+                <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count15")}>Add to Cart</button>
+              </section>
+              <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+              <section style="position: relative; bottom: 11px;">
+                <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+                <h4 style="line-height: 14px;">As low as $2.19 in Bulk</h4>
+                <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="menu-item-last">
+          <div class="shadow">
+            <img src="src/assets/Flashing-Light-Up-Tunnel-Coaster-350x350.webp" height=275>
+            <h2 style="padding: 15px 0; margin: 0; text-shadow: 1px 1px 2px rgb(0,0,0,0.3)">Infinite Illumination LED Tunnel Coaster</h2>
+            <div class="item-details">
+              <section>
+                <h4 style="line-height: 14px; padding: 0;">$3.79</h4>
+                <section style="position: relative; display: flex; flex-direction: row; justify-content: center; gap: 10px; width: 100%; align-items: center; margin-bottom: 10px;">
+                    <button class="increments" on:click={() => incrementDown("count16")} style="cursor: pointer; padding: 2px 5px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">-</button>
+                    <input bind:value={count16} placeholder={count16} type="number" style="padding: 0; margin: 0; width: 30px;">
+                    <button class="increments" on:click={() => incrementUp("count16")} style="cursor: pointer; padding: 3px 2px; border-radius: 20px; border: 2px solid black; background-color: white; color: black;">+</button>
+                </section> 
+                <button style="margin-bottom: 10px; cursor: pointer;" on:click={() => addtocart("count16")}>Add to Cart</button>
+              </section>
+              <div style="position: relative; bottom: 0px; height: 135px; width: 2px; background-color: black;"></div>
+              <section style="position: relative; bottom: 11px;">
+                <h2 style="line-height: 30px; font-size: 130%;">Bulk Order</h2>
+                <h4 style="line-height: 14px;">As low as $3.09 in Bulk</h4>
+                <button style="cursor: pointer; background-color: rgb(255,255,234);">Buy in Bulk</button>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-nav">
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <p>...</p>
+      <button>99</button>
+    </div>
+
+  {:else if currentPage === 'customBlinkees'}
+    <CustomBlinkees />
+  {:else if currentPage === 'shoppingCart'}
+    {populateCart()}
+    <div class="cart-container">
+      <h1>Your Cart</h1>
+      {#if cartItems.length === 0}
+        <p>Your cart is empty!</p>
+      {/if}
+
+      {#each cartItems as item}
+      <div class="cart-item">
+        <p>{item.name}</p>
+        <p>${item.price.toFixed(2)}</p>
+        <input
+          type="number"
+          min="1"
+          bind:value={item.quantity}
+          on:input={() => updateQuantity(item.id, item.quantity)}
+          style="background-color:white"
+        />
+        <button on:click={() => removeItem(item.id)}>Remove</button>
+      </div>
+    {/each}
+
+    {#if cartItems.length > 0}
+      <div class="checkout-section">
+        <p>Total: ${total.toFixed(2)}</p>
+        <button class="checkout-btn">Checkout</button>
+      </div>
+      {/if}
+    </div>
+  
+  {/if}
+</main>
+
+<footer>
+  <div class="upper-footer">
+    <div style="position: relative; width: 100%; display: flex; flex-direction: row; justify-content: space-around;">
+      <ul class="first-list">
+        <!--<button>Home</button> Your home navigation shouldnt be on the bottom, it should be in the nav-->
+        <button>About</button>
+        <button>Return Policy</button>
+        <button>Shipping Policy</button>
+        <button>Coupon</button>
+        <!--<button>Contact</button> Why have contact on this side but the phone and email on the other?-->
+        <button>Blinkee.com Resellers and Dropshippers</button>
+      </ul>
+      <ul class="second-list">
+        <p style="color: white; font-size: 95%; margin:0;">Contacts:</p>
+        <button>415.261.0675</button>
+        <button>Matt@Blinkee.com</button>
+        <!--<button>My Account</button> Account in both? -->
+        <!--<button>Checkout</button> Checkout in both? -->
+      </ul>
+      <ul class="third-list">
+        <button>Cart</button>
+        <button>Checkout</button>
+        <button>Account</button>
+        <button>Logout</button>
+      </ul>
+    </div>
+  </div>
+  <div class="lower-footer">
+    <p>Copyright © 2024 - 2124 Blinkee.com, LLC® <br> All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  :global(body) {
+    background-color: rgb(240,240,240);
+
+    color: black;
+
+    width: 100%;
+    font-family: "Gill Sans", sans-serif
+  }
+
+  header {
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: white;
+
+    width: 100%;
+    height: 4.5%;
+    top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*border-bottom: black 1px solid;*/
+  }
+
+  nav {
+    position: relative;
+    right: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  nav button {
+    background-color: white;
+    color: black;
+    border: none;
+
+    font-size: 100%;
+    padding-right: 20px;
+    max-width: fit-content;
+
+    cursor: pointer;
+  }
+
+  header input {
+    position: relative;
+
+    background-color: white;
+    height: 35px;
+    padding-left: 10px;
+    width: 150%;
+
+    border: 2px solid rgb(0,0,0,0.2);
+    color: black;
+    font-size: 130%;
+  }
+
+  main {
+    position: relative;
+
+    min-height: 66.1vh;
+    margin-top: 3%;
+    padding-top: 20px;
+
+    background-image: linear-gradient(to bottom, rgb(135,206,250), rgb(240, 240, 240),rgb(240, 240, 240),rgb(240, 240, 240));
+  }
+
+  .menu-row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-top: 35px;
+
+    height: 100%;
+    max-width: 100%;
+  }
+
+  .menu-item {
+    position: relative;
+
+    width: 20%;
+    text-align: center;
+
+    padding: 0 40px 0 0;
+
+    /*border-right: 1px solid rgb(0,0,0,0.4);*/
+  }
+
+  .menu-item-last {
+    position: relative;
+
+    width: 20%;
+    text-align: center;
+
+    /*padding: 0 40px 0 0;*/
+  }
+
+  .menu-item button, .menu-item-last button {
+    position: relative;
+
+    font-size: 140%;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 5px 10px;
+    background-color: rgb(	179, 224, 242);
+    color: black;
+
+    border-radius: 5px;
+  }
+
+  footer {
+    position: relative;
+    top: 20px;
+    background-color: white;
+    padding-bottom: 1px;
+  }
+
+  .upper-footer {
+    background-color: rgb(30,30,30);
+  }
+
+  .upper-footer button {
+    cursor: pointer;
+  }
+
+  .first-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+
+    min-width: 25%;
+  }
+
+  .first-list button {
+    background-color: rgb(30,30,30);
+    color: white;
+    border: none;
+
+    font-size: 95%;
+  }
+
+  .second-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+    text-align: center;
+
+    min-width: 25%;
+  }
+
+  .second-list button {
+    background-color: rgb(30,30,30);
+    color: white;
+    border: none;
+
+    font-size: 95%;
+  }
+
+  .third-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+
+    min-width: 25%;
+  }
+
+  .third-list button {
+    background-color: rgb(30,30,30);
+    color: white;
+    border: none;
+
+    font-size: 95%;
+  }
+
+  .lower-footer {
+    text-align: center;
+  }
+
+  .products {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+  }
+
+  .row-1, .row-2, .row-3 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+
+    padding: 15px 0;
+  }
+
+  .divider {
+    position: relative;
+    
+    width: 90%;
+    height: 1px;
+
+    background-color: rgb(0,0,0,0.4)
+  }
+
+  main button:hover {
+    background-color: rgb(245,245,245);
+    cursor: pointer;
+  }
+
+  .item-details {
+    position: relative;
+
+    display:flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    gap: 20px; 
+    
+    left: 2px;
+  }
+
+  .shadow {
+    min-height: 57vh;
+    padding: 20px 10px;
+    box-shadow: 1px 1px 8px rgb(0,0,0,0.3);
+    background-color: white;
+    border-radius: 10px;
+    /*border: 1px solid gray;*/
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown menu (hidden by default) */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position below the button */
+    left: 5px;
+    z-index: 1000;
+    min-width: 125px; /* Set consistent width */
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 0; /* Remove extra padding */
+  }
+
+  .dropdown-menu button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  .dropdown-menu button:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Show dropdown menu on hover or focus */
+  .dropdown:hover .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu, 
+  .dropdown-menu:hover {
+    display: block;
+  }
+
+  .nav-item {
+    cursor: pointer;
+    padding: 10px 10px;
+    background: none;
+    border: none;
+    text-align: left;
+    color: black;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%; /* Ensure full clickable area */
+  }
+
+  .dropdown-item {
+    display: flex; /* Ensure flexible layout */
+    justify-content: space-between; /* Push text and right alignment to edges */
+    width: 100%; /* Full width for alignment */
+    font-size: 14px;
+    text-align: left;
+    color: #000;
+    box-sizing: border-box; /* Ensure consistent sizing */
+  }
+
+  /* Highlight dropdown items on hover or focus */
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    background-color: #e0e0e0; /* Light grey background */
+    color: #000;
+    outline: none; /* Remove default focus outline */
+  }
+
+  /* Ensure all dropdown items are the same size and aligned */
+  .dropdown-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Highlight Custom Blinkees button on hover or focus */
+  .nav-item:hover,
+  .nav-item:focus {
+    background-color: #e0e0e0; /* Light grey background */
+    color: #000; /* Black text */
+  }
+
+  .menu-item h2, .menu-item-last h2 {
+    font-size: 150%;
+  }
+
+  .page-nav {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-nav button {
+    background-color: rgb(224, 224, 224);
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 110%;
+  }
+
+  .page-nav button:hover {
+    background-color: white;
+  }
+
+  .item-details input {
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 105%;
+  }
+  .item-details input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .item-details input:focus {
+    outline-width: 0;
+  }
+
+
+  .cart-container {
+    width: 80%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .cart-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .cart-container .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .cart-container .cart-item input {
+    width: 50px;
+    text-align: center;
+  }
+  
+  .cart-container .cart-item button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cart-container .cart-item button:hover {
+    background-color: #0056b3;
+  }
+  
+  .cart-container .checkout-section {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  .cart-container .checkout-section .checkout-btn {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cart-container .checkout-section .checkout-btn:hover {
+    background-color: #218838;
+  }
+
+  .cart-item p {
+    justify-content: space-between;
+    flex: 1;
+  }
+  .cart-item input {
+    margin-right: 10px;
+    color: black;
+    border: #007bff;
+    border-radius: 10px;
+  }
+</style>
